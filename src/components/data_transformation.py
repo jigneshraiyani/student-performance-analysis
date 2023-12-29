@@ -15,7 +15,7 @@ FOLDER_NAME = 'artifacts'
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path = os.path.join(FOLDER_NAME, 'proprocessor.pkl')
+    preprocessor_obj_file_path = os.path.join(FOLDER_NAME, 'preprocessor.pkl')
 
 class DataTransformation:
     def __init__(self):
@@ -88,12 +88,9 @@ class DataTransformation:
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info(f"Saved preprocessing object.")
-            
             save_object(
-
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
-
             )
             return (
                 training_arr,
